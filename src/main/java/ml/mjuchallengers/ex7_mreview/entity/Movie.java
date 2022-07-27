@@ -10,7 +10,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Getter
 @ToString
-public class Movie {
+public class Movie extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
