@@ -18,7 +18,7 @@ public class MovieImage extends BaseEntity {
 
     private String uuid;
 
-    private String umgName;
+    private String imgName;
 
     private String path;
 
