@@ -24,6 +24,7 @@ public class Review extends BaseEntity {
     @ToString.Exclude
     private Member member;
 
+    /*description: 평점*/
     private int grade;
 
     private String text;
