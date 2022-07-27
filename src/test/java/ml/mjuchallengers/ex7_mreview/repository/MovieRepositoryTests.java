@@ -38,7 +38,7 @@ public class MovieRepositoryTests {
             for(int j = 0; j < count; j++) {
 
                 MovieImage movieImage = MovieImage.builder()
-                        .uuid(UUID.randomUUID().toString())
+                        .uuid(UUID.randomUUID().toString()) // 임의의 번호 부여
                         .movie(movie)
                         .imgName("test"+j+".jpg")
                         .build();
