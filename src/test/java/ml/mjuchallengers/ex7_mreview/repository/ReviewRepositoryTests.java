@@ -14,7 +14,7 @@ public class ReviewRepositoryTests {
 
     @Autowired
     private ReviewRepository reviewRepository;
-    /*TODO: p26*/
+
     @Test
     public void insertMovieReviews() {
 
