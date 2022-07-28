@@ -5,11 +5,16 @@ import ml.mjuchallengers.ex7_mreview.entity.MovieImage;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.test.annotation.Commit;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Arrays;
 import java.util.UUID;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 @SpringBootTest
 public class MovieRepositoryTests {
@@ -20,6 +25,7 @@ public class MovieRepositoryTests {
     @Autowired
     private MovieImageRepository movieImageRepository;
 
+    /*더미 데이터 삽입*/
     @Commit
     @Transactional
     @Test
@@ -49,7 +55,20 @@ public class MovieRepositoryTests {
 
         });
 
+    }
 
+    /*평점과 리뷰 개수 조회 쿼리*/
+    @Test
+    public void testListPage() {
+
+        PageRequest pageRequest = PageRequest.of(0, 10, Sort.by(Sort.Direction.DESC, "mno"));
+
+        Page<Object[]> result = movieRepository.getListPage(pageRequest);
+
+        for(Object[] objects : result.getContent()) {
+            System.out.println(Arrays.toString(objects));
+        }
 
     }
+
 }
