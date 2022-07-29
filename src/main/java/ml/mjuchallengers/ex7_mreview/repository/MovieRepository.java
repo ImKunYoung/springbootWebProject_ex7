@@ -21,7 +21,8 @@ public interface MovieRepository extends JpaRepository<Movie, Long> {
     @Query("select movie, movieImage, avg(coalesce(review.grade, 0)), count(review) from Movie movie " +
             "left outer join MovieImage movieImage on movieImage.movie = movie " +
             "left outer join Review review on review.movie = movie " +
-            "where movie.mno = :mno")
+            "where movie.mno = :mno " +
+            "group by movieImage")
     List<Object[]> getMovieWithAll(Long mno);
 
 }

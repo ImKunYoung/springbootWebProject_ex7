@@ -76,7 +76,7 @@ public class MovieRepositoryTests {
     @Test
     public void testGetMovieWithAll() {
 
-        Long mno = 1L;
+        Long mno = 3L;
 
         List<Object[]> result = movieRepository.getMovieWithAll(mno);
 
