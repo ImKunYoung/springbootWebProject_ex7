@@ -72,7 +72,7 @@ public class MovieRepositoryTests {
 
     }
 
-    /*특정 영화의 모든 이미지와 평균 평점/리뷰 개수*/
+    /*특정 영화의 모든 이미지와 평균 평점/리뷰 개수 조회 쿼리*/
     @Test
     public void testGetMovieWithAll() {
 
