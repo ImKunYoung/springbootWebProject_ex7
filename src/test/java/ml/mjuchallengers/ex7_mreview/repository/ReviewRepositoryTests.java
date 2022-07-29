@@ -57,9 +57,9 @@ public class ReviewRepositoryTests {
         result.forEach(movieReview -> {
 
             System.out.println(movieReview.getReviewnum());
-            System.out.print("\t"+movieReview.getGrade());
-            System.out.print("\t"+movieReview.getText());
-            System.out.print("\t"+movieReview.getMember().getEmail());
+            System.out.println(movieReview.getGrade());
+            System.out.println(movieReview.getText());
+            System.out.println(movieReview.getMember().getEmail());
             System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 
         });
