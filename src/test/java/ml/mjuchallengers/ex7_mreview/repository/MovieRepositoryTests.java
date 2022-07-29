@@ -12,6 +12,7 @@ import org.springframework.test.annotation.Commit;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.UUID;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -71,4 +72,26 @@ public class MovieRepositoryTests {
 
     }
 
+    /*특정 영화의 모든 이미지와 평균 평점/리뷰 개수*/
+    @Test
+    public void testGetMovieWithAll() {
+
+        Long mno = 1L;
+
+        List<Object[]> result = movieRepository.getMovieWithAll(mno);
+
+        System.out.println(result);
+
+        for(Object[] objects : result) {
+            System.out.println(Arrays.toString(objects));
+        }
+
+    }
 }
+
+
+
+
+
+
+
