@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import javax.transaction.Transactional;
+import java.util.List;
 import java.util.stream.IntStream;
 
 @SpringBootTest
@@ -36,6 +38,29 @@ public class ReviewRepositoryTests {
                     .build();
 
             reviewRepository.save(review);
+
+        });
+
+    }
+
+    /*특정 영화의 모든 리뷰와 회원의 닉네임 조회 쿼리*/
+    @Transactional
+    @Test
+    public void testGetMovieReviews() {
+
+        Long mno = 3L;
+
+        Movie movie = Movie.builder().mno(mno).build();
+
+        List<Review> result = reviewRepository.findByMovie(movie);
+
+        result.forEach(movieReview -> {
+
+            System.out.println(movieReview.getReviewnum());
+            System.out.println("\t"+movieReview.getGrade());
+            System.out.println("\t"+movieReview.getText());
+            System.out.println("\t"+movieReview.getMember().getEmail());
+            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 
         });
 
