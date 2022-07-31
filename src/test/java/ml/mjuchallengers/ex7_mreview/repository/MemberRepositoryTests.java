@@ -13,6 +13,9 @@ public class MemberRepositoryTests {
     @Autowired
     private MemberRepository memberRepository;
 
+    @Autowired
+    private ReviewRepository reviewRepository;
+
     @Test
     public void insertMembers() {
 
@@ -25,6 +28,18 @@ public class MemberRepositoryTests {
 
             memberRepository.save(member);
         });
+
+    }
+
+    @Test
+    public void testDeleteMember() {
+
+        Long mid = 1L;
+
+        Member member = Member.builder().mid(mid).build();
+
+        memberRepository.deleteById(mid);
+        reviewRepository.deleteByMember(member);
 
     }
 
