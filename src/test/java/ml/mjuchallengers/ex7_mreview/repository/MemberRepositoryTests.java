@@ -4,7 +4,9 @@ import ml.mjuchallengers.ex7_mreview.entity.Member;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Commit;
 
+import javax.transaction.Transactional;
 import java.util.stream.IntStream;
 
 @SpringBootTest
@@ -31,6 +33,9 @@ public class MemberRepositoryTests {
 
     }
 
+    /*member 삭제*/
+    @Commit
+    @Transactional
     @Test
     public void testDeleteMember() {
 
@@ -38,8 +43,8 @@ public class MemberRepositoryTests {
 
         Member member = Member.builder().mid(mid).build();
 
-        memberRepository.deleteById(mid);
         reviewRepository.deleteByMember(member);
+        memberRepository.deleteById(mid);
 
     }
 
